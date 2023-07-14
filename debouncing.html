@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Debouncing Search Bar</title>
+</head>
+<body>
+  <input type="text" id="search-input" placeholder="Search...">
+  
+  <script>
+    // Set up variables
+    let debounceTimer;
+    const delay = 300; // Delay in milliseconds
+
+    // Function to perform the search
+    function performSearch() {
+      // Get the search input value
+      const searchTerm = document.getElementById('search-input').value;
+
+      // Perform the search request here
+      // ...
+      console.log('Searching for:', searchTerm);
+    }
+
+    // Function to handle user input
+    function handleInput() {
+      // Clear the previous debounce timer
+      clearTimeout(debounceTimer);
+
+      // Set up a new debounce timer
+      debounceTimer = setTimeout(performSearch, delay);
+    }
+
+    // Add event listener to the search input
+    document.getElementById('search-input').addEventListener('input', handleInput);
+  </script>
+</body>
+</html>
